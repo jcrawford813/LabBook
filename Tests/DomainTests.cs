@@ -1,6 +1,5 @@
 namespace Tests;
 
-using System.Reflection.Metadata.Ecma335;
 using LabBook.Domain;
 
 public class DomainTests
