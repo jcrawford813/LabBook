@@ -1,4 +1,4 @@
-﻿namespace LabBook.Persistence;
+﻿namespace Persistence;
 
 public class ItemPersistence
 {

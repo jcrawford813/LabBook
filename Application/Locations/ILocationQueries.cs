@@ -1,5 +1,3 @@
-using LabBook.Domain;
-
 namespace Application.Locations;
 
 public interface ILocationQueries
