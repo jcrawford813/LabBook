@@ -1,7 +1,3 @@
-using System.Data;
-using Application.Interfaces;
-using LabBook.Domain;
-
 namespace Application.Items;
 
 public interface IItemQueries

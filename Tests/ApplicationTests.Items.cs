@@ -1,7 +1,5 @@
 using Application.Interfaces;
 using Application.Items;
-using LabBook.Domain;
-using Moq;
 
 namespace Tests;
 

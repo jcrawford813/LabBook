@@ -1,7 +1,5 @@
 namespace Tests;
 
-using LabBook.Domain;
-
 public class DomainTests
 {
     public class ItemTests

@@ -1,5 +1,4 @@
 using Application.Interfaces;
-using LabBook.Domain;
 
 namespace Application.Items;
 
