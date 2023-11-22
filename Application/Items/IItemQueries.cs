@@ -8,5 +8,5 @@ public interface IItemQueries
 {
     List<Item> GetItems(string filter);
 
-    Item GetItem(int id);
+    Item? GetItem(int id);
 }
