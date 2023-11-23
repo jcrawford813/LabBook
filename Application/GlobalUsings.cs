@@ -1,1 +1,1 @@
-global using LabBook.Domain;
+global using Domain;

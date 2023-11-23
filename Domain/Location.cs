@@ -1,4 +1,4 @@
-namespace LabBook.Domain;
+namespace Domain;
 
 /// <summary>
 /// Represents a Location for an Item.

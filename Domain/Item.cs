@@ -1,4 +1,4 @@
-﻿namespace LabBook.Domain;
+﻿namespace Domain;
 
 /// <summary>
 /// Represents an Item within the Inventory.
