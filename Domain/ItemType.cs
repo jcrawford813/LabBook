@@ -7,9 +7,9 @@ public class ItemType
 {
     public ItemType(int id, string name, string description)
     {
-        this.Id = id;
-        this.Name = name;
-        this.Description = description;
+        Id = id;
+        Name = name;
+        Description = description;
     }
     
     public int Id { get; private set; }

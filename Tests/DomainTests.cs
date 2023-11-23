@@ -75,7 +75,7 @@ public class DomainTests
     {
         private const int _id = 10;
         private readonly string _description = "A Location Here.";
-        private Location _subLocation = new Location(22, "A shelf in here.");
+        private readonly Location _parentLocation = new(22, "A shelf in here.");
 
         [Fact]
         public void TestCreateLocation()
@@ -94,19 +94,19 @@ public class DomainTests
         }
 
         [Fact]
-        public void TestSetSubLocation()
+        public void TestSetParentLocation()
         {
             var location = new Location(_id, _description);
-            location.SubLocation = _subLocation;
-            Assert.Equal(_subLocation, location.SubLocation); //Testing reference out of laziness.
+            location.ParentLocation = _parentLocation;
+            Assert.Equal(_parentLocation, location.ParentLocation); //Testing reference out of laziness.
         }
 
         [Fact]
         public void TestRemoveSublocation()
         {
-            var location = new Location(_id, _description, _subLocation);
-            location.SubLocation = null;
-            Assert.Null(location.SubLocation);
+            var location = new Location(_id, _description, _parentLocation);
+            location.ParentLocation = null;
+            Assert.Null(location.ParentLocation);
         }
     }
 }

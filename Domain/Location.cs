@@ -8,17 +8,17 @@ public class Location
     public Location (int locationId, string description)
         : this(locationId, description, null) { }
 
-    public Location (int locationId, string description, Location? subLocation)
+    public Location (int locationId, string description, Location? parentLocation)
     {
-        this.LocationId = locationId;
-        this.Description = description;
-        this.SubLocation = subLocation;
+        Id = locationId;
+        Description = description;
+        ParentLocation = parentLocation;
     }
 
-    public int LocationId { get; private set; }
+    public int Id { get; private set; }
 
     public string Description { get; set; }
 
-    public Location? SubLocation { get; set; }
+    public Location? ParentLocation { get; set; }
 
 }

@@ -10,10 +10,10 @@ public class Item
 
     public Item(int id, string name, string description, Location? location)
     {
-        this.Id = id;
-        this.Notes = description;
-        this.Name = name;
-        this.Location = location;
+        Id = id;
+        Notes = description;
+        Name = name;
+        Location = location;
     }
 
     public int Id { get; private set; }

@@ -4,5 +4,5 @@ public interface ILocationQueries
 {
     List<Location> GetLocations(string query);
 
-    Location GetLocation(int id);
+    Location? GetLocation(int id);
 }

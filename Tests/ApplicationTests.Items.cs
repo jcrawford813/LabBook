@@ -1,5 +1,7 @@
+using Application;
 using Application.Interfaces;
 using Application.Items;
+using Moq.AutoMock.Resolvers;
 
 namespace Tests;
 
@@ -81,7 +83,39 @@ public partial class ApplicationTests
 
     public class ItemModelTests
     {
+        private readonly ItemModel _model = new(1, "Test Item", "Some Notes about the item.", 1, 1);
 
+        [Fact]
+        public void TestChangeName()
+        {
+            var newName = "New Item";
+            _model.Name = newName;
+            Assert.Equal(newName, _model.Name);
+        }
+
+        [Fact]
+        public void TestChangeNotes()
+        {
+            var newNotes = "Changing the Notes";
+            _model.Notes = newNotes;
+            Assert.Equal(newNotes, _model.Notes);
+        }
+
+        [Fact]
+        public void TestChangeLocation()
+        {
+            var newLocation = 2;
+            _model.LocationId = newLocation;
+            Assert.Equal(newLocation, _model.LocationId);
+        }
+
+        [Fact]
+        public void TestChangeItemType()
+        {
+            var newItemType = 2;
+            _model.ItemTypeId = newItemType;
+            Assert.Equal(newItemType, _model.ItemTypeId);
+        }
     }
 
     public class ItemCommandTests
