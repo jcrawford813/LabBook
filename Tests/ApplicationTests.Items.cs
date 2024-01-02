@@ -120,7 +120,37 @@ public partial class ApplicationTests
 
     public class ItemCommandTests
     {
+        public ItemCommandTests()
+        {
+            var mock = new AutoMocker();
+            
+            mock.GetMock<IDatabase>()
+                .Setup(d => d.Items)
+                .Returns(mock.GetMock<IRepository<Item>>().Object);
+            
+            _database = mock.GetMock<IDatabase>().Object;
+            _commands = new ItemCommands(_database);
+        }
 
+        private readonly IDatabase _database;
+
+        private readonly IItemCommands _commands;
+
+        private readonly ItemModel _model = new(1,  "Test Item", "Notes for Test Item.", 1, 1);
+
+        [Fact]
+        public void TestAddItemWithNoError()
+        {
+            _commands.AddItem(_model);
+            Assert.True(true);
+        }
+
+        [Fact]
+        public void TestRemoveItemWithNoError()
+        {
+            _commands.RemoveItem(_model);
+            Assert.True(true);
+        }
     }
     
 }
