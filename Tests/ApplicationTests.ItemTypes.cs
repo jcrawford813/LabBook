@@ -109,7 +109,50 @@ public partial class ApplicationTests
 
     public class ItemTypeCommandTests
     {
-        
+        public ItemTypeCommandTests()
+        {
+            var mock = new AutoMocker();
+
+            var itemTypes = new List<ItemType>()
+            {
+                new(1, "Item Type 1", "An initial item type."),
+                new(2, "Another Type", "The second item type."),
+                new(3, "Item Type 3", "The last one.")
+            };
+
+            mock.GetMock<IRepository<ItemType>>()
+                .Setup(r => r.GetAll())
+                .Returns(itemTypes.AsQueryable());
+
+            mock.GetMock<IDatabase>()
+                .Setup(d => d.ItemTypes)
+                .Returns(mock.GetMock<IRepository<ItemType>>().Object);
+
+            _database = mock.GetMock<IDatabase>().Object;
+            _commands = new ItemTypeCommands(mock.GetMock<IDatabase>().Object);
+        }
+
+        private readonly ItemTypeModel _model = new(1, "This Model Type.", "A special model type for testing.");
+    
+        private readonly IDatabase _database;
+
+        private readonly IItemTypeCommands _commands;
+
+        [Fact]
+        public void TestAddItemTypeWithNoError()
+        {
+            var itemType = new ItemTypeModel(4, "New Type", "A new type.");
+            _commands.AddItemType(itemType);
+            Assert.True(true);
+        }
+
+        [Fact]
+        public void TestRemoveItemTypeWithNoError()
+        {
+            var itemType = new ItemTypeModel(1, "Item Type 1", "An initial item type.");
+            _commands.RemoveItemType(itemType);
+            Assert.True(true);
+        }
     }
     
 }

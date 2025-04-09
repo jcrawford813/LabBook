@@ -23,7 +23,7 @@ public class ItemCommands(IDatabase database) : IItemCommands
         _database.Save();
     }
 
-    private Item CreateItemFromModel(ItemModel model)
+    private static Item CreateItemFromModel(ItemModel model)
     {
         Item item = new(model.Id, model.Name, model.Notes, new Location(model.LocationId, String.Empty));
         return item;
