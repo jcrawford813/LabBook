@@ -4,14 +4,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Persistence;
 
-public class ItemPersistence : IRepository<Item>
+public class ItemPersistence(DbContext context) : IRepository<Item>
 {
-    private readonly DbContext _context;
-
-    public ItemPersistence(DbContext context)
-    {
-        _context = context;
-    }
+    private readonly DbContext _context = context;
 
     public IQueryable<Item> GetAll()
     {

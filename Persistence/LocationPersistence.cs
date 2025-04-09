@@ -4,14 +4,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Persistence;
 
-public class LocationPersistence : IRepository<Location>
+public class LocationPersistence(DbContext context) : IRepository<Location>
 {
-    private readonly DbContext _context;
-
-    public LocationPersistence(DbContext context)
-    {
-        _context = context;
-    }
+    private readonly DbContext _context = context;
 
     public IQueryable<Location> GetAll()
     {

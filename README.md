@@ -5,8 +5,8 @@ While this could be used in an actual setting, this is mostly intended to be a d
 
 ## Technologies
 This project uses the following technologies:
-- .NET Core 7.0
-- .NET MVC 7
+- .NET Core 8.0
+- .NET MVC 8
 - Entity Framework
 - XUnit
 - Moq
