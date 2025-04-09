@@ -3,22 +3,12 @@ namespace Domain;
 /// <summary>
 /// Represents a Location for an Item.
 /// </summary>s
-public class Location 
+public class Location(int locationId, string description, Location? parentLocation = null)
 {
-    public Location (int locationId, string description)
-        : this(locationId, description, null) { }
+    public int Id { get; private set; } = locationId;
 
-    public Location (int locationId, string description, Location? parentLocation)
-    {
-        Id = locationId;
-        Description = description;
-        ParentLocation = parentLocation;
-    }
+    public string Description { get; set; } = description;
 
-    public int Id { get; private set; }
-
-    public string Description { get; set; }
-
-    public Location? ParentLocation { get; set; }
+    public Location? ParentLocation { get; set; } = parentLocation;
 
 }
