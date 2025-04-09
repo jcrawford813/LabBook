@@ -3,14 +3,9 @@ using Application.Interfaces;
 
 namespace Application.Items;
 
-public class ItemCommands : IItemCommands
+public class ItemCommands(IDatabase database) : IItemCommands
 {
-    public ItemCommands(IDatabase database)
-    {
-        _database = database;
-    }
-
-    private readonly IDatabase _database;
+    private readonly IDatabase _database = database;
 
     public void AddItem(ItemModel model)
     {

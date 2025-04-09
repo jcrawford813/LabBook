@@ -2,14 +2,9 @@ using Application.Interfaces;
 
 namespace Application.Items;
 
-public class ItemQueries : IItemQueries
+public class ItemQueries(IDatabase database) : IItemQueries
 {
-    public ItemQueries(IDatabase database)
-    {
-        _database = database;
-    }
-
-    private readonly IDatabase _database;
+    private readonly IDatabase _database = database;
 
     public Item? GetItem(int id)
     {

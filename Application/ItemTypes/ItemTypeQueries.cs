@@ -3,14 +3,9 @@ using Application.Interfaces;
 
 namespace Application.ItemTypes;
 
-public class ItemTypeQueries : IItemTypeQueries
+public class ItemTypeQueries(IDatabase database) : IItemTypeQueries
 {
-    public ItemTypeQueries(IDatabase database)
-    {
-        _database = database;
-    }
-
-    private readonly IDatabase _database;
+    private readonly IDatabase _database = database;
 
     public ItemType? GetItemType(int id)
     {

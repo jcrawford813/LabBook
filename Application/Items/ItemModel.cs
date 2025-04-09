@@ -1,23 +1,14 @@
 namespace Application.Items;
 
-public class ItemModel
+public class ItemModel(int id, string name, string notes, int itemTypeId, int locationId)
 {
-    public ItemModel(int id, string name, string notes, int itemTypeId, int locationId)
-    {
-        Id = id;
-        Notes = notes;
-        Name = name;
-        ItemTypeId = itemTypeId;
-        LocationId = locationId;
-    }
+    public int Id { get; private set; } = id;
 
-    public int Id { get; private set; }
+    public string Name { get; set; } = name;
 
-    public string Name { get; set; }
+    public string Notes { get; set; } = notes;
 
-    public string Notes { get; set; }
+    public int ItemTypeId { get; set; } = itemTypeId;
 
-    public int ItemTypeId { get; set; }
-
-    public int LocationId { get; set; }
+    public int LocationId { get; set; } = locationId;
 }

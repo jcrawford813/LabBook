@@ -10,6 +10,3 @@ This project uses the following technologies:
 - Entity Framework
 - XUnit
 - Moq
-- Bicep for IaC
-
-## Build and Deploy

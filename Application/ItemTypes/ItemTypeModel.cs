@@ -1,17 +1,10 @@
 namespace Application.ItemTypes;
 
-public class ItemTypeModel
+public class ItemTypeModel(int id, string name, string description)
 {
-    public ItemTypeModel(int id, string name, string description)
-    {
-        Id = id;
-        Name = name;
-        Description = description;
-    }
+    public int Id { get; set; } = id;
 
-    public int Id { get; set; }
+    public string Name { get; set; } = name;
 
-    public string Name { get; set; }
-
-    public string Description { get; set; }
+    public string Description { get; set; } = description;
 }

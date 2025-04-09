@@ -2,14 +2,9 @@ using Application.Interfaces;
 
 namespace Application.Locations;
 
-public class LocationQueries : ILocationQueries
+public class LocationQueries(IDatabase database) : ILocationQueries
 {
-    public LocationQueries(IDatabase database)
-    {
-        _database = database;
-    }
-    
-    private readonly IDatabase _database;
+    private readonly IDatabase _database = database;
 
     public Location? GetLocation(int id)
     {
