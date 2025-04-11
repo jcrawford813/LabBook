@@ -94,6 +94,53 @@ public partial class ApplicationTests
 
     public class LocationCommandTests
     {
+        public LocationCommandTests()
+        {
+            var mock = new AutoMocker();
+
+            var locations = new List<Location>()
+            {
+                new(1, "This Location"),
+                new(2, "That Location", new(1, "This Location")),
+                new(3, "One Last Place.")
+            };
+
+            mock.GetMock<IRepository<Location>>()
+                .Setup(l => l.GetAll())
+                .Returns(locations.AsQueryable());
+
+            mock.GetMock<IRepository<Location>>()
+                .Setup(l => l.Get(1))
+                .Returns(locations.SingleOrDefault(l => l.Id == 1));
+
+            mock.GetMock<IRepository<Location>>()
+                .Setup(l => l.Get(4))
+                .Returns(value:null);
+
+            mock.GetMock<IDatabase>()
+                .Setup(d => d.Locations)
+                .Returns(mock.GetMock<IRepository<Location>>().Object);
+
+            _commands = new LocationCommands(mock.GetMock<IDatabase>().Object);
+        }
+
+        public readonly ILocationCommands _commands;
+
+        [Fact]
+        public void TestAddLocationWithNoError()
+        {
+            var location = new LocationModel(4, "New Location");
+            _commands.AddLocation(location);
+            Assert.True(true);
+        }
+
+        [Fact]
+        public void TestRemoveLocationWithNoError()
+        {
+            var location = new LocationModel(1, "This Location");
+            _commands.RemoveLocation(location);
+            Assert.True(true);
+        }
 
     }
 
